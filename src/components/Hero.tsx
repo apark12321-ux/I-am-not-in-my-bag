@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { BookOpen, Bookmark, ArrowDown } from 'lucide-react';
 import { BOOK_INFO } from '../data';
 // @ts-ignore
-import bookCoverImg from '../assets/images/book_cover_1779695882079.png';
+import bookCoverImg from '../assets/images/book_cover_1779695882079.jpg';
 
 interface HeroProps {
   onExploreClick: () => void;

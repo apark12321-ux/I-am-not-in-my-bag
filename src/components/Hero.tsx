@@ -15,6 +15,16 @@ export default function Hero({ onExploreClick }: HeroProps) {
     localStorage.removeItem('custom_book_cover');
   }, []);
 
+  const [copiedLink, setCopiedLink] = React.useState(false);
+
+  const handleCopyLink = () => {
+    const currentOrigin = typeof window !== 'undefined' ? window.location.origin : '';
+    const shareMessage = `[내 가방에 내가 없다] 8인 여성 작가들의 치유 수필 & 마음 무게 자가진단 처방 웹사이트 💼\n\n그동안 우리 어깨를 짓누른 것은 과연 가방만의 무게였을까요?\n👉 에세이집 소개 및 마음 처방 받으러 가기:\n🔗 ${currentOrigin}`;
+    navigator.clipboard.writeText(shareMessage);
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 2000);
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-gradient-to-b from-[#f5f1e9] via-[#fbf9f4] to-[#fbf9f4] overflow-hidden select-none">
       {/* Background Ornaments */}
@@ -61,20 +71,30 @@ export default function Hero({ onExploreClick }: HeroProps) {
             매일 아침 우리의 어깨에 들려진 물건들 속에서 정작 '나 자신'의 이름과 꿈을 잊은 채 달려가고 있진 않나요? 따뜻한 성찰과 위안을 담은 소장용 에세이집을 만나보세요.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-wrap gap-3 pt-4">
             <button
               onClick={onExploreClick}
-              className="flex items-center gap-2 px-6 py-3.5 bg-cozy-brown text-warm-beige font-serif text-sm transition-all duration-300 hover:bg-deep-charcoal hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-cozy-brown/15 rounded-md"
+              className="flex items-center gap-2 px-5 py-3.5 bg-cozy-brown text-warm-beige font-serif text-sm transition-all duration-300 hover:bg-deep-charcoal hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-cozy-brown/15 rounded-md cursor-pointer"
             >
               <BookOpen className="w-4 h-4" />
               <span>책 속으로 들어가기</span>
             </button>
             <a
               href="#diagnosis"
-              className="flex items-center gap-2 px-6 py-3.5 border border-cozy-brown/20 text-cozy-brown text-sm font-sans transition-all duration-300 hover:bg-clay/35 rounded-md"
+              className="flex items-center justify-center gap-2 px-5 py-3.5 border border-cozy-brown/20 text-cozy-brown text-sm font-sans transition-all duration-300 hover:bg-clay/35 rounded-md"
             >
               <span>내 가방 무게 재기</span>
             </a>
+            <button
+              onClick={handleCopyLink}
+              className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white border border-sage/40 text-sage hover:bg-sage hover:text-white text-sm font-sans font-medium transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 rounded-md cursor-pointer shadow-xs"
+            >
+              {copiedLink ? (
+                <span>링크 복사완료! ✨</span>
+              ) : (
+                <span>공유 링크 복사 🔗</span>
+              )}
+            </button>
           </div>
         </motion.div>
 

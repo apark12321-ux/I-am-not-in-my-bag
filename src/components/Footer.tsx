@@ -56,10 +56,10 @@ export default function Footer() {
           
           <div className="space-y-4">
             <h4 className="font-serif text-sm font-bold text-clay text-white">
-              《{BOOK_INFO.title}》 공식 아카이브
+              《{BOOK_INFO.title}》 공저자 소통 & 나눔 허브
             </h4>
             <p className="font-sans leading-relaxed text-justify font-light">
-              본 사이트는 8명의 평범한 여성이 일상의 가방 속 소지품을 통해 '나다움'을 회복했던 눈물겨운 여정과 성찰을 담은 도서 공식 홍보 아카이브입니다.
+              본 사이트는 8명의 평범한 여성이 일상의 가방 속 소지품을 통해 '나다움'을 회복했던 눈물겨운 여정과 성찰을 나눕니다. 8인의 공저들이 함께 활용하며 독자들과 진솔한 마음을 주고받는 자서전 수필 나눔터입니다.
             </p>
           </div>
 

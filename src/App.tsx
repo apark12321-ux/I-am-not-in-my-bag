@@ -45,8 +45,8 @@ export default function App() {
 
         {/* Small badge */}
         <div>
-          <span className="text-[10px] bg-clay/55 border border-cozy-brown/20 px-2.5 py-1 text-cozy-brown font-serif tracking-widest rounded-sm">
-            OFFICIAL ARCHIVE
+          <span className="text-[10px] bg-sage/20 border border-sage/40 px-2.5 py-1 text-sage font-serif tracking-widest rounded-sm font-bold">
+            CO-AUTHORS HUB
           </span>
         </div>
       </header>

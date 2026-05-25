@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, ShoppingBag, Plus, Minus, RefreshCw, Heart } from 'lucide-react';
+import { Sparkles, ShoppingBag, Plus, Minus, RefreshCw, Heart, Copy, Check, Share2 } from 'lucide-react';
 import { DIAGNOSIS_ITEMS } from '../data';
 import { BagItem } from '../types';
 
 export default function BagTherapy() {
   const [selectedItems, setSelectedItems] = useState<string[]>(["chore", "work"]); // Default burdens loaded
+  const [copied, setCopied] = useState(false);
 
   const handleToggleItem = (id: string) => {
     setSelectedItems(prev => 
@@ -50,6 +51,20 @@ export default function BagTherapy() {
     advice = "어깻죽지 위에 수십 킬로그램의 고요한 침묵이 매달려 있는 한계 상태입니다. 8인의 작가가 가방을 비우고 다시 나를 찾았을 때의 눈물 흘리던 고백들이 바로 당신을 위한 이야기입니다. 잠시 가방을 내려 두고 완전히 편안하게 앉아 숨을 비워내세요.";
     bookQuote = "가방을 거꾸로 뒤집어 산산이 조각나 흩어진 소지품들을 바라본다. 세상에, 이 무거운 것들의 주인은 모두 내가 아니었구나. 나는 남들의 필요만 담아 바쁘게 셔틀하는 우편 배달부였을 뿐이었다.";
   }
+
+  const handleCopyShare = () => {
+    const currentOrigin = typeof window !== 'undefined' ? window.location.origin : '';
+    const itemsText = selectedItems.map(id => {
+      const item = DIAGNOSIS_ITEMS.find(i => i.id === id);
+      return item ? `• ${item.name} (+${item.weightValue}kg)` : '';
+    }).filter(Boolean).join('\n');
+
+    const shareText = `[💼 나의 마음 가방 무게 처방 결과]\n\n⚖️ 마음 무게: ${totalWeightValue} kg\n🏷️ 마음 적체도: "${levelTitle}"\n\n📌 내 가방을 채우고 있는 짐들:\n${itemsText || '• 홀가분하게 비어있음'}\n\n✍️ 《내 가방에 내가 없다》 출간 처방 문장:\n"${bookQuote}"\n\n그동안 우리 어깨를 짓누른 것은 과연 가방만의 무게였을까요?\n\n👉 지금 나의 가방 지키기 및 마음 자가진단해보기\n🔗 ${currentOrigin}\n\n#내가방에내가없다 #자가진단 #마음자가진단 #에세이 #출간기념`;
+
+    navigator.clipboard.writeText(shareText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section id="diagnosis" className="py-20 px-4 bg-clay/20 relative overflow-hidden select-none">
@@ -201,6 +216,24 @@ export default function BagTherapy() {
                 </motion.div>
               </AnimatePresence>
             </div>
+
+            {/* SNS Viral Link Button */}
+            <button
+              onClick={handleCopyShare}
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-sage/90 hover:bg-sage text-white text-xs sm:text-sm font-sans font-medium rounded-xl transition-all shadow-md shadow-sage/15 hover:shadow-lg active:scale-98 cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-200" />
+                  <span className="font-semibold">진단 결과 & 아카이브 링크 복사 완료!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-4 h-4" />
+                  <span>진단 결과 복사 & 도서 링크 SNS 공유하기</span>
+                </>
+              )}
+            </button>
 
             <p className="text-[11px] text-cozy-brown/50 leading-relaxed font-light text-center">
               *작성한 수치 정보는 어디에도 저장되지 않으며, 일시적으로 마음에 위로를 선물하는 심리 처방 가이드입니다.

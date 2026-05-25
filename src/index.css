@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Gowun Batang", serif;
+  --font-display: "Song Myung", serif;
+  --font-sans: "Gowun Dodum", sans-serif;
+  --color-warm-beige: #f5efe4;
+  --color-paper-deep: #ece2d2;
+  --color-paper-light: #fdfdfc;
+  --color-deep-charcoal: #2a241d;
+  --color-cozy-brown: #6a5f50;
+  --color-clay: #efebe4;
+  --color-clay-text: #a4583c;
+  --color-clay-deep: #82412a;
+  --color-gold: #c2a35e;
+  --color-sage: #8a9a86;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-warm-beige);
+    color: var(--color-deep-charcoal);
+    font-family: var(--font-serif);
+    line-height: 1.85;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  h1, .font-display {
+    font-family: var(--font-display);
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  button, input, textarea, select, .font-sans {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom Paper Texture Effect */
+.bg-paper-texture {
+  background-color: var(--color-paper-light);
+  background-image: 
+    radial-gradient(rgba(42, 36, 29, 0.03) 1px, transparent 0),
+    radial-gradient(rgba(42, 36, 29, 0.02) 1px, transparent 0);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Custom scrollbars to match the cozy aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cozy-brown);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-deep-charcoal);
+}
+
+/* Quote board custom grid */
+.writing-pad-grid {
+  background-image: linear-gradient(rgba(106, 95, 80, 0.06) 1px, transparent 1px);
+  background-size: 100% 2.2rem;
+  line-height: 2.2rem;
+}

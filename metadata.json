@@ -1,0 +1,6 @@
+{
+  "name": "내 가방에 내가 없다",
+  "description": "8인의 공동 저자가 전하는 일상의 기록과 위로, 에세이 《내 가방에 내가 없다》 공식 아카이브 페이지",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

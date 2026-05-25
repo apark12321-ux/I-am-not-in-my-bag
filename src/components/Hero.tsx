@@ -89,17 +89,6 @@ export default function Hero({ onExploreClick }: HeroProps) {
             {/* Elegant Aura Glow Behind the Book */}
             <div className="absolute -inset-6 bg-gradient-to-tr from-sage/15 via-clay/10 to-amber-100/10 rounded-xl blur-3xl group-hover:scale-110 transition-all duration-700 pointer-events-none" />
             
-            {/* Elegant dangling bookmark ribbon */}
-            <motion.div 
-              style={{ originY: 0 }}
-              animate={{ rotate: [-1, 2, -1] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="absolute left-6 bottom-[-48px] w-4 h-20 bg-gradient-to-r from-clay to-cozy-brown/80 rounded-b-sm shadow-md flex items-end justify-center pb-2 z-0 origin-top pointer-events-none"
-            >
-              {/* Gold tassel stitch line */}
-              <div className="w-[1px] h-12 bg-warm-beige/30" />
-            </motion.div>
-
             {/* Elegant Analog Book Card Component */}
             <motion.div 
               whileHover={{ 

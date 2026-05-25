@@ -39,24 +39,24 @@ export default function Authors() {
               
               <div className="space-y-4 pt-2">
                 <div className="space-y-1 text-left">
-                  <div className="text-[10px] text-sage font-serif uppercase tracking-wider block font-bold">
+                  <div className="text-[11px] text-sage font-serif uppercase tracking-wider block font-bold">
                     CO-AUTHOR
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-deep-charcoal flex items-center gap-1.5">
+                  <h3 className="text-xl font-serif font-bold text-deep-charcoal flex items-center gap-1.5">
                     {author.name}
                   </h3>
-                  <p className="text-xs text-cozy-brown/75 font-sans italic font-light">
+                  <p className="text-sm text-cozy-brown/85 font-sans italic font-light leading-relaxed">
                     &ldquo;{author.tagline}&rdquo;
                   </p>
                 </div>
 
                 <div className="border-t border-b border-cozy-brown/5 py-3 text-left">
-                  <p className="text-xs font-serif italic text-cozy-brown/90 leading-relaxed font-semibold">
+                  <p className="text-sm font-serif italic text-cozy-brown/95 leading-relaxed font-semibold">
                     &ldquo;{author.quote}&rdquo;
                   </p>
                 </div>
 
-                <p className="text-xs text-deep-charcoal/70 leading-relaxed font-sans text-justify font-light min-h-[70px]">
+                <p className="text-sm text-deep-charcoal/80 leading-relaxed font-sans text-justify font-light min-h-[70px]">
                   {author.description}
                 </p>
               </div>
@@ -68,13 +68,13 @@ export default function Authors() {
                     href={author.blogUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f5f2eb] hover:bg-[#eae4d5] text-cozy-brown border border-cozy-brown/10 rounded-md text-[11px] font-sans transition-all cursor-pointer shadow-xs font-bold"
+                    className="flex items-center gap-1.5 px-3.5 py-2 bg-[#f5f2eb] hover:bg-[#eae4d5] text-cozy-brown border border-cozy-brown/10 rounded-md text-xs sm:text-sm font-sans transition-all cursor-pointer shadow-xs font-bold"
                   >
                     <span>작가 글터/블로그 보기</span>
-                    <ExternalLink className="w-3 h-3 text-cozy-brown" />
+                    <ExternalLink className="w-3.5 h-3.5 text-cozy-brown" />
                   </a>
                 ) : (
-                  <span className="text-[10px] text-cozy-brown/40 font-mono tracking-widest uppercase">
+                  <span className="text-xs text-cozy-brown/50 font-mono tracking-widest uppercase">
                     MEMBER ARCHIVE
                   </span>
                 )}

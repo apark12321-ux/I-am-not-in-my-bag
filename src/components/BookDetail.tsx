@@ -49,25 +49,25 @@ export default function BookDetail() {
           
           <div className="space-y-6">
             <div className="space-y-2">
-              <span className="text-xs text-sage font-serif uppercase tracking-widest block font-bold">INTRODUCING THE BOOK</span>
-              <h3 className="text-2xl font-serif font-bold text-deep-charcoal">{BOOK_INFO.title}</h3>
-              <p className="text-xs text-cozy-brown/65 font-sans leading-relaxed">
+              <span className="text-xs sm:text-sm text-sage font-serif uppercase tracking-widest block font-bold">INTRODUCING THE BOOK</span>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-deep-charcoal">{BOOK_INFO.title}</h3>
+              <p className="text-xs sm:text-sm text-cozy-brown/75 font-sans leading-relaxed">
                 출간일: {BOOK_INFO.publishedDate} | 공동 저술
               </p>
             </div>
             
-            <p className="text-deep-charcoal/80 font-sans text-sm leading-relaxed text-justify whitespace-pre-line font-light">
+            <p className="text-deep-charcoal/90 font-sans text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-light">
               {BOOK_INFO.overview}
             </p>
           </div>
 
-          <div className="border-t border-cozy-brown/15 pt-6 mt-8 space-y-3">
-            <div className="flex justify-between text-xs text-cozy-brown/70">
-              <span className="font-serif block">지은이</span>
+          <div className="border-t border-cozy-brown/15 pt-6 mt-8 space-y-4">
+            <div className="flex justify-between items-start text-xs sm:text-sm text-cozy-brown/80 gap-4">
+              <span className="font-serif block shrink-0 font-medium">지은이</span>
               <span className="font-sans font-medium text-right max-w-[280px]">권지연, 김순이, 김태이, 김태희, 양혜진, 조서연, 황별초, 황영란</span>
             </div>
-            <div className="flex justify-between text-xs text-cozy-brown/70">
-              <span className="font-serif block">도서 주제</span>
+            <div className="flex justify-between items-center text-xs sm:text-sm text-cozy-brown/80 gap-4">
+              <span className="font-serif block shrink-0 font-medium">도서 주제</span>
               <span className="font-sans">자서전적 치유 에세이 / 수필</span>
             </div>
           </div>
@@ -78,11 +78,11 @@ export default function BookDetail() {
           
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <span className="flex items-center gap-1.5 px-2.5 py-1 bg-clay/30 text-cozy-brown font-serif text-xs border border-cozy-brown/10 rounded">
-                <Bookmark className="w-3 h-3 text-sage" fill="currentColor" />
+              <span className="flex items-center gap-1.5 px-3 py-1.5 bg-clay/30 text-cozy-brown font-serif text-sm border border-cozy-brown/10 rounded">
+                <Bookmark className="w-3.5 h-3.5 text-sage" fill="currentColor" />
                 <span>책 속의 따스한 문장 큐레이션</span>
               </span>
-              <span className="text-xs font-mono text-cozy-brown/60">
+              <span className="text-sm font-mono text-cozy-brown/70 font-bold">
                 {currentIndex + 1} / {EXCERPTS.length}
               </span>
             </div>
@@ -103,13 +103,13 @@ export default function BookDetail() {
                     transition={{ duration: 0.4 }}
                     className="space-y-4"
                   >
-                    <p className="text-lg sm:text-xl font-serif text-deep-charcoal font-bold leading-relaxed tracking-wide py-2 select-text px-4">
+                    <p className="text-xl sm:text-2xl font-serif text-deep-charcoal font-bold leading-relaxed tracking-wide py-2 select-text px-4">
                       &ldquo;{currentExcerpt.sentence}&rdquo;
                     </p>
                     <div className="flex items-center justify-center gap-2">
                       <span className="h-[1px] w-8 bg-cozy-brown/20" />
-                      <p className="text-xs text-cozy-brown font-sans">
-                        {currentExcerpt.chapter} &middot; <span className="text-slate-500 font-light">{currentExcerpt.context}</span>
+                      <p className="text-sm text-cozy-brown font-sans font-medium">
+                        {currentExcerpt.chapter} &middot; <span className="text-cozy-brown/80 font-normal">{currentExcerpt.context}</span>
                       </p>
                       <span className="h-[1px] w-8 bg-cozy-brown/20" />
                     </div>
@@ -124,8 +124,8 @@ export default function BookDetail() {
             
             {/* Copy Button */}
             <button
-              onClick={() => handleCopy(currentExcerpt.sentence, currentExcerpt.id)}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-clay/40 hover:bg-clay/80 text-cozy-brown hover:text-deep-charcoal text-xs font-sans rounded-md transition-colors"
+               onClick={() => handleCopy(currentExcerpt.sentence, currentExcerpt.id)}
+               className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 bg-clay/40 hover:bg-clay/85 text-cozy-brown hover:text-deep-charcoal text-sm font-sans rounded-md transition-all font-medium active:scale-95 cursor-pointer"
             >
               {copiedId === currentExcerpt.id ? (
                 <>
